@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "a5b45c8f-019c-439c-87e8-c39452706e9d",
+		"name": "Belajar Spring Security",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Get Token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "john",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:44444/api/auth/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44444",
+									"path": [
+										"api",
+										"auth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Token Refresh",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDQ0NC9hcGkvYXV0aC90b2tlbiIsImV4cCI6MTYyOTM4NzE2Nn0.Z2yTLiIPbihmQPhrrtfzpUYz9LvxZr-hDWQvJ_FWIUM",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:44444/api/auth/token/refresh",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44444",
+									"path": [
+										"api",
+										"auth",
+										"token",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Service",
+					"item": [
+						{
+							"name": "Get All Users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ0NDQvYXBpL2F1dGgvdG9rZW4iLCJleHAiOjE2MjkzODYxMjF9.Quxn2q6qQv1oyHQQkK38SuNUEQOR_c9L-KUdFhEGNMA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:44444/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44444",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Role",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqaW0iLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ0NDQvYXBpL2F1dGgvdG9rZW4iLCJleHAiOjE2MjkzODYyNTZ9.2dLouXziYj0LU8JwpGpjE8BSh1EuTVI13PXBBEHkT0I",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"ROLE_ADMIN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:44444/api/role/save",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44444",
+									"path": [
+										"api",
+										"role",
+										"save"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqaW0iLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ0NDQvYXBpL2F1dGgvdG9rZW4iLCJleHAiOjE2MjkzODYyNTZ9.2dLouXziYj0LU8JwpGpjE8BSh1EuTVI13PXBBEHkT0I",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Firman Budi Safrizal\",\n    \"username\":\"frmnjn\",\n    \"password\":\"xixixi\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:44444/api/user/save",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44444",
+									"path": [
+										"api",
+										"user",
+										"save"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create User Role Mapping",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqaW0iLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ0NDQvYXBpL2F1dGgvdG9rZW4iLCJleHAiOjE2MjkzODYyNTZ9.2dLouXziYj0LU8JwpGpjE8BSh1EuTVI13PXBBEHkT0I",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"frmnjn\",\n    \"roleName\":\"ROLE_ADMIN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:44444/api/role/addtouser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44444",
+									"path": [
+										"api",
+										"role",
+										"addtouser"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
