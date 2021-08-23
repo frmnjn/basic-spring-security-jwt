@@ -5,6 +5,10 @@ pipeline {
     }
     environment {
         BUILD_TIME = sh (returnStdout: true, script: 'echo $(date \'+%Y-%m-%d_%H:%M:%S\')').trim()
+        GIT_COMMIT_SHORT = sh(
+                script: "printf \$(git rev-parse --short ${GIT_COMMIT})",
+                returnStdout: true
+        )
     }
     stages {
         stage('Build') { 
@@ -18,6 +22,7 @@ pipeline {
                 sh "env"
                 sh "echo $BUILD_TIME"
                 sh "echo ${GIT_COMMIT}"
+                sh "echo $GIT_COMMIT_SHORT"
             }
         }
         stage('Done'){
